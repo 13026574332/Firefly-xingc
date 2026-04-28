@@ -57,8 +57,7 @@ export const siteConfig: SiteConfig = {
 	favicon: [
 		{
 			// 图标文件路径
-			// src: "/favicon/favicon.ico",
-			src: "https://teek.seasir.top/avatar/avatar.webp",
+			src: "/favicon/favicon.ico",
 			// 可选，指定主题 'light' | 'dark'
 			// theme: "light",
 			// 可选，图标大小
@@ -75,9 +74,8 @@ export const siteConfig: SiteConfig = {
 		// 3. 本地图片（src目录，自动优化但会增加构建时间，推荐）: { type: "image", value: "assets/images/logo.webp", alt: "Logo" }
 		// 4. 网络图片: { type: "url", value: "https://example.com/logo.png", alt: "Logo" }
 		logo: {
-			type: "url",
-			// value: "assets/images/Hyde.png",
-			value: "https://teek.seasir.top/avatar/avatar.webp",
+			type: "image",
+			value: "assets/images/logo.webp",
 			alt: "🍀",
 		},
 		// 导航栏标题

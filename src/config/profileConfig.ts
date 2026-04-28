@@ -6,8 +6,7 @@ export const profileConfig: ProfileConfig = {
 	// 1. public 目录（以 "/" 开头，不优化）："/assets/images/avatar.webp"
 	// 2. src 目录（不以 "/" 开头，自动优化但会增加构建时间，推荐）："assets/images/avatar.webp"
 	// 3. 远程 URL："https://example.com/avatar.jpg"
-	// avatar: "assets/images/avatar.avif",
-	avatar: "https://teek.seasir.top/avatar/avatar.webp",
+	avatar: "assets/images/avatar.avif",
 
 
 	// 名字
@@ -24,9 +23,9 @@ export const profileConfig: ProfileConfig = {
 	// showName: true 时显示图标和名称，false 时只显示图标
 	links: [
 		{
-			name: "qq",
-			icon: "fa7-brands:qq",
-			url: "https://qm.qq.com/q/xxxx",
+			name: "WhatsApp",
+			icon: "fa7-brands:whatsapp-square",
+			url: "https://api.whatsapp.com/send/?phone=13527063419&text=Hello",
 			showName: false,
 		},
 		{
@@ -45,6 +44,12 @@ export const profileConfig: ProfileConfig = {
 			name: "RSS",
 			icon: "fa7-solid:rss",
 			url: "/rss/",
+			showName: false,
+		},
+		{
+			name: "Telegram",
+			icon: "logos:telegram",
+			url: "https://t.me/seasir_Bot",
 			showName: false,
 		},
 	],
