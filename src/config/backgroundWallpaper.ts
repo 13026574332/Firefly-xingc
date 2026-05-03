@@ -76,7 +76,8 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 			titleSize: "3.8rem",
 			// 主页横幅副标题
 			subtitle: [
-				"欲买桂花同载酒，终不似，少年游",
+				"欲买桂花同载酒，终不似，少年游！",
+				"花有重开日，人无再少年",
 			],
 			// 主页横幅副标题字体大小
 			subtitleSize: "1.5rem",
