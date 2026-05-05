@@ -56,7 +56,12 @@ const size = config.size || { width: 280, height: 250 };
 
     // Load model data first to get motion groups and hit areas
     fetch(modelPath)
-      .then((response) => response.json())
+      .then((response) => {
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
+        return response.json();
+      })
       .then((data) => {
         motionGroups = data.motions || {};
         hitAreas = data.hit_areas_custom || data.hit_areas || {};
@@ -75,7 +80,7 @@ const size = config.size || { width: 280, height: 250 };
         }, 2000);
       })
       .catch((error) => {
-        console.error("Failed to load model data:", error);
+        console.warn("Failed to load Live2D model data:", error.message);
       });
   }
 
@@ -179,20 +184,26 @@ const size = config.size || { width: 280, height: 250 };
     // 设置初始光标样式
     container.style.cursor = "grab";
 
-    // 窗口大小变化时重新检查边界
+    // 窗口大小变化时重新检查边界 - batch read operations before writes
+    let resizeTimeout;
     window.addEventListener("resize", () => {
-      const rect = container.getBoundingClientRect();
-      const maxX = window.innerWidth - container.offsetWidth;
-      const maxY = window.innerHeight - container.offsetHeight;
+      clearTimeout(resizeTimeout);
+      resizeTimeout = setTimeout(() => {
+        const rect = container.getBoundingClientRect();
+        const containerWidth = container.offsetWidth;
+        const containerHeight = container.offsetHeight;
+        const maxX = window.innerWidth - containerWidth;
+        const maxY = window.innerHeight - containerHeight;
 
-      if (rect.left > maxX) {
-        container.style.left = maxX + "px";
-        container.style.right = "auto";
-      }
-      if (rect.top > maxY) {
-        container.style.top = maxY + "px";
-        container.style.bottom = "auto";
-      }
+        if (rect.left > maxX) {
+          container.style.left = maxX + "px";
+          container.style.right = "auto";
+        }
+        if (rect.top > maxY) {
+          container.style.top = maxY + "px";
+          container.style.bottom = "auto";
+        }
+      }, 100);
     });
 
     console.log("Live2D interactions and drag functionality setup complete");
@@ -382,23 +393,33 @@ const size = config.size || { width: 280, height: 250 };
     }
   }
 
-  // Initialize when ready (only once)
-  if (document.readyState === "loading") {
-    document.addEventListener("DOMContentLoaded", () => {
-      // 检查是否已经初始化
+  function scheduleInit(fn) {
+    if ('requestIdleCallback' in window) {
+      requestIdleCallback(() => fn(), { timeout: 2000 });
+    } else {
+      setTimeout(fn, 200);
+    }
+  }
+
+  // Initialize when ready (only once) - defer to not block main content rendering
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', () => {
+      scheduleInit(() => {
+        if (!window.live2dModelInitialized) {
+          loadLive2DSDK();
+          window.live2dModelInitialized = true;
+        }
+        handleResponsive();
+      });
+    });
+  } else {
+    scheduleInit(() => {
       if (!window.live2dModelInitialized) {
         loadLive2DSDK();
         window.live2dModelInitialized = true;
       }
       handleResponsive();
     });
-  } else {
-    // 检查是否已经初始化
-    if (!window.live2dModelInitialized) {
-      loadLive2DSDK();
-      window.live2dModelInitialized = true;
-    }
-    handleResponsive();
   }
 
   // Handle window resize for responsive behavior

@@ -316,10 +316,11 @@ const widgetId =
             ui.cover.alt = cfg.i18n.noCover;
         }
 
-        // Reset cover rotation
+        // Reset cover rotation - use rAF instead of forced reflow to avoid layout thrashing
         ui.cover.classList.remove('animate-spin-slow');
-        void ui.cover.offsetWidth;
-        ui.cover.classList.add('animate-spin-slow');
+        requestAnimationFrame(() => {
+            ui.cover.classList.add('animate-spin-slow');
+        });
         ui.cover.style.animationPlayState = 'paused';
 
         // Reset progress

@@ -10,7 +10,6 @@
         .badge-footer {
             display: flex;
             flex-direction: column;
-            gap: 10px;
             padding: 10px 0;
             font-size: 14px;
             color: #666;
@@ -20,7 +19,6 @@
         .animal-img {
             display: flex;
             justify-content: center;
-            margin-bottom: 8px;
         }
 
         /* 徽章组：横向同一行展示 */
@@ -38,7 +36,7 @@
             justify-content: center;
             align-items: center;
             flex-wrap: wrap;
-            gap: 16px;
+            gap: 8px;
             margin-top: 4px;
             font-size: 13px;
             color: #888;
@@ -48,7 +46,6 @@
         /* 链接样式 */
         .footer-info a {
             color: #888;
-            text-decoration: none;
             display: inline-flex;
             align-items: center;
             gap: 4px;
@@ -56,11 +53,6 @@
 
         .footer-info a:hover {
             color: #409eff;
-        }
-
-        /* 去掉链接下划线 */
-        .badge-footer a {
-            text-decoration: none;
         }
 
         /* 统计小图标 */
@@ -76,22 +68,22 @@
     <div class="badge-footer">
         <!-- 第一行：居中的动物图片 -->
         <div class="animal-img">
-            <img alt="VitePress" src="/src/assets/images/animals.webp">
+            <img alt="VitePress" src="/assets/images/animals.webp">
         </div>
 
         <!-- 第二行：所有徽章 -->
         <div class="badge-group">
-            <a target="_blank" href="https://cn.vitejs.dev/" title="本站使用 Astro构建服务 Vite"><img alt="Astro"
-                    src="https://img.shields.io/badge/zsr-Vite-blue?logo=vite&label=Build"></a>
+            <a target="_blank" href="https://astro.build/" title="本站使用 Astro构建服务 Vite"><img alt="Astro"
+                    src="https://img.shields.io/badge/Build-Astro-%23BC52EE?logo=astro&logoColor=%23BC52EE"></a>
 
-            <a target="_blank" href="https://vitepress.dev/" title="本站框架基于 VitePress_v1.6.3"><img alt="VitePress"
-                    src="https://img.shields.io/badge/Frame-VitePress-4868C2?logo=vitepress&amp;logoColor=fff"></a>
+            <a target="_blank" href="https://tailwindcss.com/" title="本CSS基于 TailwindCSS_v4.2"><img alt="TailwindCSS"
+                    src="https://img.shields.io/badge/Tailwind-CSS-%2306B6D4?logo=tailwindcss&logoColor=%2306B6D4"></a>
 
             <a target="_blank" href="https://twikoo.js.org/" title="本站评论系统 Twikoo"><img alt="Twikoo"
-                    src="https://img.shields.io/badge/Comments-Twikoo-0072F9"></a>
+                    src="https://img.shields.io/badge/Comments-Twikoo-%23007aff?logo=livechat&logoColor=%23007aff"></a>
 
             <a target="_blank" href="https://www.algolia.com/" title="本站搜索服务 Algolia"><img alt="Algolia"
-                    src="https://img.shields.io/badge/Search-Algolia-3095FA?logo=Algolia"></a>
+                    src="https://img.shields.io/badge/Search-Algolia-%23003DFF?logo=algolia&logoColor=%23003DFF"></a>
 
             <a target="_blank" href="https://edgeone.ai/zh/" title="本站CDN加速 EdgeOne"><img alt="EdgeOne"
                     src="https://img.shields.io/badge/zsr-EdgeOne-blue?logo=icloud&label=CDN"></a>
@@ -143,10 +135,18 @@
     <!-- 版本号自动获取 -->
     <script>
         fetch('/package.json')
-            .then(res => res.json())
-            .then(pkg => {
-                document.getElementById('versionText').textContent = '主题版本：v' + pkg.version
+            .then(function(res) {
+                if (!res.ok) {
+                    throw new Error('HTTP ' + res.status);
+                }
+                return res.json();
             })
+            .then(function(pkg) {
+                document.getElementById('versionText').textContent = '主题版本：v' + pkg.version;
+            })
+            .catch(function(e) {
+                // Silently fail - version is already shown as fallback
+            });
     </script>
 
     <!-- ====================== 运行时间核心代码 ====================== -->

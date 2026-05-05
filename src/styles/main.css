@@ -5,6 +5,7 @@
 @import './waves.css';
 @import './transition.css'; 
 @import './custom-scrollbar.css';
+@import './mouse.css';
 
 
 @plugin '@tailwindcss/typography';

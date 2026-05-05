@@ -60,6 +60,15 @@ export const friendsConfig: FriendLink[] = [
 		weight: 8,
 		enabled: true,
 	},
+	{
+		title: "W3C技术联盟",
+		imgurl: "https://image.js.cn/",
+		desc: "让Web服务全人类",
+		siteurl: "https://image.js.cn/logo.svg",
+		tags: ["W3C"],
+		weight: 8,
+		enabled: true,
+	},
 ];
 
 // 获取启用的友链并进行排序

@@ -120,6 +120,9 @@ const postUrlPrefix = url("/posts/");
         allPostsData = window.__allPostMetaCache;
       } else {
         const response = await fetch(calendarDataUrl);
+        if (!response.ok) {
+          throw new Error(`HTTP ${response.status}: ${response.statusText}`);
+        }
         allPostsData = await response.json();
         window.__allPostMetaCache = allPostsData;
       }

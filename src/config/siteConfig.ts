@@ -13,7 +13,7 @@ export const siteConfig: SiteConfig = {
 	subtitle: "人心中的成见是一座大山",
 
 	// 站点 URL
-	site_url: "https://xxx.xxx.cn",
+	site_url: "https://hyde.seasir.top",
 
 	// 站点描述
 	description:
