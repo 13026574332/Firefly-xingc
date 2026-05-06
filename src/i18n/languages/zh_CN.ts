@@ -299,6 +299,11 @@ export const zh_CN: Translation = {
 	[Key.galleryNoAlbums]: "暂无相册",
 	[Key.galleryBackToAlbums]: "返回相册列表",
 
+	// 设备页面
+	[Key.devices]: "设备",
+	[Key.devicesSubtitle]: "我的设备清单",
+	[Key.devicesViewDetails]: "查看详情",
+
 	// 密码保护
 	[Key.passwordProtected]: "密码保护",
 	[Key.passwordProtectedDesc]: "这篇文章已被密码保护，请输入密码查看内容。",

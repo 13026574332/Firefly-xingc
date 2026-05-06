@@ -307,6 +307,11 @@ export const ja: Translation = {
 	[Key.galleryNoAlbums]: "アルバムがありません",
 	[Key.galleryBackToAlbums]: "アルバム一覧に戻る",
 
+	// デバイスページ
+	[Key.devices]: "デバイス",
+	[Key.devicesSubtitle]: "私のデバイス一覧",
+	[Key.devicesViewDetails]: "詳細を見る",
+
 	// パスワード保護
 	[Key.passwordProtected]: "パスワード保護",
 	[Key.passwordProtectedDesc]:

@@ -4,6 +4,7 @@ published: 2026-04-30
 pinned: true
 description: "年轻的时候是旅游重要还是攒钱重要？"
 image: ./DaguGlacier.webp
+slug: /travel
 tags: ["旅游"]
 category: 旅行
 draft: false

@@ -295,6 +295,11 @@ enum I18nKey {
 	galleryNoAlbums = "galleryNoAlbums",
 	galleryBackToAlbums = "galleryBackToAlbums",
 
+	// 设备页面
+	devices = "devices",
+	devicesSubtitle = "devicesSubtitle",
+	devicesViewDetails = "devicesViewDetails",
+	
 	// 密码保护
 	passwordProtected = "passwordProtected",
 	passwordProtectedDesc = "passwordProtectedDesc",

@@ -28,17 +28,7 @@ export const friendsConfig: FriendLink[] = [
 			"https://hyde.seasir.top/_astro/avatar.B2RZ_bo3_JV0dW.webp",
 		desc: "人心中的成见是一座大山~",
 		siteurl: "https://teek.seasir.top/",
-		tags: ["Blog"],
-		weight: 10, // 权重，数字越大排序越靠前
-		enabled: true, // 是否启用
-	},
-	{
-		title: "RyuChan",
-		imgurl:
-			"https://ryu-chan.vercel.app/profile.png",
-		desc: "Ciallo～(∠・ω<)⌒★",
-		siteurl: "https://ryu-chan.vercel.app/",
-		tags: ["Blog"],
+		tags: ["Astro"],
 		weight: 10, // 权重，数字越大排序越靠前
 		enabled: true, // 是否启用
 	},
@@ -48,24 +38,52 @@ export const friendsConfig: FriendLink[] = [
 		desc: "Firefly主题模板文档",
 		siteurl: "https://docs-firefly.cuteleaf.cn",
 		tags: ["Docs"],
-		weight: 9,
+		weight: 10,
 		enabled: true,
 	},
 	{
-		title: "Astro",
-		imgurl: "https://avatars.githubusercontent.com/u/44914786?v=4&s=640",
-		desc: "The web framework for content-driven websites. ⭐️ Star to support our work!",
-		siteurl: "https://github.com/withastro/astro",
-		tags: ["Framework"],
+		title: "RyuChan",
+		imgurl:
+			"https://ryu-chan.vercel.app/profile.png",
+		desc: "Ciallo～(∠・ω<)⌒★",
+		siteurl: "https://ryu-chan.vercel.app/",
+		tags: ["Astro"],
+		weight: 10, // 权重，数字越大排序越靠前
+		enabled: true, // 是否启用
+	},
+	{
+		title: "Mizuki",
+		imgurl: "https://mizuki.mysqil.com/_astro/avatar.DodcwRNI_Z1iLucw.webp",
+		desc: "下一代Material Design 3 博客主题(Astro驱动)",
+		siteurl: "https://mizuki.mysqil.com/",
+		tags: ["Astro"],
+		weight: 8,
+		enabled: true,
+	},
+	{
+		title: "Mizuki-Ultra",
+		imgurl: "https://docs.mizuki.mysqil.com/favicon.png",
+		desc: "一个简约&功能丰富的 Astro 博客 主题",
+		siteurl: "https://docs.mizuki.mysqil.com/",
+		tags: ["Docs"],
 		weight: 8,
 		enabled: true,
 	},
 	{
 		title: "W3C技术联盟",
-		imgurl: "https://image.js.cn/",
+		imgurl: "https://image.js.cn/logo.svg",
 		desc: "让Web服务全人类",
-		siteurl: "https://image.js.cn/logo.svg",
+		siteurl: "https://image.js.cn/",
 		tags: ["W3C"],
+		weight: 8,
+		enabled: true,
+	},
+	{
+		title: "One",
+		imgurl: "https://img.onedayxyy.cn/images/Teek/Teekwebsite/xyy-logo.avif?w=150&h=150&fit=crop&fm=webp&q=80",
+		desc: "上海修车spa足浴推拿反差狂魔one哥",
+		siteurl: "https://onedayxyy.cn/",
+		tags: ["One哥"],
 		weight: 8,
 		enabled: true,
 	},

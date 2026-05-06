@@ -308,6 +308,11 @@ export const en: Translation = {
 	[Key.galleryNoAlbums]: "No albums yet",
 	[Key.galleryBackToAlbums]: "Back to albums",
 
+	// Devices Page
+	[Key.devices]: "Devices",
+	[Key.devicesSubtitle]: "My Devices Collection",
+	[Key.devicesViewDetails]: "View Details",
+
 	// Password Protection
 	[Key.passwordProtected]: "Password Protected",
 	[Key.passwordProtectedDesc]:

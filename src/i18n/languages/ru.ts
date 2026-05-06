@@ -309,6 +309,11 @@ export const ru: Translation = {
 	[Key.galleryNoAlbums]: "Пока нет альбомов",
 	[Key.galleryBackToAlbums]: "Вернуться к альбомам",
 
+	// Страница устройств
+	[Key.devices]: "Устройства",
+	[Key.devicesSubtitle]: "Мой список устройств",
+	[Key.devicesViewDetails]: "Подробнее",
+
 	// Защита паролем
 	[Key.passwordProtected]: "Защищено паролем",
 	[Key.passwordProtectedDesc]:

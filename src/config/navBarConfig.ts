@@ -59,6 +59,9 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 			// 根据配置决定是否添加赞助，在siteConfig关闭pages.sponsor时导航栏不显示赞助
 			...(siteConfig.pages.sponsor ? [LinkPreset.Sponsor] : []),
 
+			// 根据配置决定是否添加设备清单，在siteConfig关闭pages.devices时导航栏不显示设备清单
+			...(siteConfig.pages.devices ? [LinkPreset.Devices] : []),
+
 			// 关于页面
 			LinkPreset.About,
 		],

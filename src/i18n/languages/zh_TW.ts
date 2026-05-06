@@ -301,6 +301,11 @@ export const zh_TW: Translation = {
 	[Key.galleryNoAlbums]: "暫無相簿",
 	[Key.galleryBackToAlbums]: "返回相簿列表",
 
+	// 設備頁面
+	[Key.devices]: "設備",
+	[Key.devicesSubtitle]: "我的設備清單",
+	[Key.devicesViewDetails]: "查看詳情",
+
 	// 密碼保護
 	[Key.passwordProtected]: "密碼保護",
 	[Key.passwordProtectedDesc]: "這篇文章已被密碼保護，請輸入密碼查看內容。",
