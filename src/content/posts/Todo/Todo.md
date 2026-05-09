@@ -18,8 +18,9 @@ draft: false
 ## BUG
 
 - [x] 修复生产环境下顶部滚动条刷新页面不显示
+- [ ] 浏览量一直加载中...
 - [ ] 生产环境下，https://v6-widget.51.la/v6/3MQCwI1AgSSiVg37/quote.js?theme= 重复请求，页面重复渲染，待修复
 
 ## 优化
 
-- [ ] 右侧滚动条优化，和[teek](https://teek.seasir.top/)保持一致
+- [x] 右侧滚动条优化，和[teek](https://teek.seasir.top/)保持一致
