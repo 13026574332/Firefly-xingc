@@ -14,6 +14,7 @@ export const ru: Translation = {
 	[Key.searchViewMore]: "Показать еще ({count} шт)",
 	[Key.other]: "Прочее",
 	[Key.all]: "Все",
+	[Key.friendsFilterAll]: "Все",
 
 	[Key.tags]: "Теги",
 	[Key.categories]: "Категории",
@@ -328,6 +329,18 @@ export const ru: Translation = {
 	[Key.devices]: "Устройства",
 	[Key.devicesSubtitle]: "Мой список устройств",
 	[Key.devicesViewDetails]: "Подробнее",
+
+	// Страница проектов
+	[Key.projects]: "Проекты",
+	[Key.projectsSubtitle]: "Мои проекты",
+	[Key.projectsCompleted]: "Завершено",
+	[Key.projectsInProgress]: "В процессе",
+	[Key.projectsPlanned]: "Запланировано",
+	[Key.projectsVisit]: "Посетить",
+	[Key.projectsWeb]: "Веб",
+	[Key.projectsMobile]: "Мобильный",
+	[Key.projectsDesktop]: "Десктоп",
+	[Key.projectsOther]: "Другое",
 
 	// Защита паролем
 	[Key.passwordProtected]: "Защищено паролем",

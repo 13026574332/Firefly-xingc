@@ -69,6 +69,7 @@ enum I18nKey {
 	more = "more",
 	collapse = "collapse",
 	all = "all",
+	friendsFilterAll = "friendsFilterAll",
 
 	author = "author",
 	publishedAt = "publishedAt",
@@ -314,6 +315,18 @@ enum I18nKey {
 	devices = "devices",
 	devicesSubtitle = "devicesSubtitle",
 	devicesViewDetails = "devicesViewDetails",
+
+	// 项目页面
+	projects = "projects",
+	projectsSubtitle = "projectsSubtitle",
+	projectsCompleted = "projectsCompleted",
+	projectsInProgress = "projectsInProgress",
+	projectsPlanned = "projectsPlanned",
+	projectsVisit = "projectsVisit",
+	projectsWeb = "projectsWeb",
+	projectsMobile = "projectsMobile",
+	projectsDesktop = "projectsDesktop",
+	projectsOther = "projectsOther",
 	
 	// 密码保护
 	passwordProtected = "passwordProtected",

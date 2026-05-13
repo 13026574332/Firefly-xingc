@@ -14,6 +14,7 @@ export const ja: Translation = {
 	[Key.searchViewMore]: "さらに結果を表示 ({count} 件)",
 	[Key.other]: "その他",
 	[Key.all]: "すべて",
+	[Key.friendsFilterAll]: "すべて",
 
 	[Key.tags]: "タグ",
 	[Key.categories]: "カテゴリ",
@@ -326,6 +327,18 @@ export const ja: Translation = {
 	[Key.devices]: "デバイス",
 	[Key.devicesSubtitle]: "私のデバイス一覧",
 	[Key.devicesViewDetails]: "詳細を見る",
+
+	// プロジェクトページ
+	[Key.projects]: "プロジェクト",
+	[Key.projectsSubtitle]: "私のプロジェクト作品",
+	[Key.projectsCompleted]: "完了",
+	[Key.projectsInProgress]: "進行中",
+	[Key.projectsPlanned]: "計画中",
+	[Key.projectsVisit]: "アクセス",
+	[Key.projectsWeb]: "Web",
+	[Key.projectsMobile]: "モバイル",
+	[Key.projectsDesktop]: "デスクトップ",
+	[Key.projectsOther]: "その他",
 
 	// パスワード保護
 	[Key.passwordProtected]: "パスワード保護",

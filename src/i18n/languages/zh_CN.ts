@@ -14,6 +14,7 @@ export const zh_CN: Translation = {
 	[Key.searchViewMore]: "查看更多结果 ({count} 个更多)",
 	[Key.other]: "其他",
 	[Key.all]: "全部",
+	[Key.friendsFilterAll]: "全部",
 
 	[Key.tags]: "标签",
 	[Key.categories]: "分类",
@@ -318,6 +319,18 @@ export const zh_CN: Translation = {
 	[Key.devices]: "设备",
 	[Key.devicesSubtitle]: "我的设备清单",
 	[Key.devicesViewDetails]: "查看详情",
+
+	// 项目页面
+	[Key.projects]: "项目",
+	[Key.projectsSubtitle]: "记录我的项目作品",
+	[Key.projectsCompleted]: "已完成",
+	[Key.projectsInProgress]: "进行中",
+	[Key.projectsPlanned]: "计划中",
+	[Key.projectsVisit]: "访问",
+	[Key.projectsWeb]: "Web",
+	[Key.projectsMobile]: "移动端",
+	[Key.projectsDesktop]: "桌面端",
+	[Key.projectsOther]: "其他",
 
 	// 密码保护
 	[Key.passwordProtected]: "密码保护",

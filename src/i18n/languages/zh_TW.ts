@@ -14,6 +14,7 @@ export const zh_TW: Translation = {
 	[Key.searchViewMore]: "查看更多結果 ({count} 個更多)",
 	[Key.other]: "其他",
 	[Key.all]: "全部",
+	[Key.friendsFilterAll]: "全部",
 
 	[Key.tags]: "標籤",
 	[Key.categories]: "分類",
@@ -320,6 +321,18 @@ export const zh_TW: Translation = {
 	[Key.devices]: "設備",
 	[Key.devicesSubtitle]: "我的設備清單",
 	[Key.devicesViewDetails]: "查看詳情",
+
+	// 項目頁面
+	[Key.projects]: "項目",
+	[Key.projectsSubtitle]: "記錄我的項目作品",
+	[Key.projectsCompleted]: "已完成",
+	[Key.projectsInProgress]: "進行中",
+	[Key.projectsPlanned]: "計劃中",
+	[Key.projectsVisit]: "訪問",
+	[Key.projectsWeb]: "Web",
+	[Key.projectsMobile]: "移動端",
+	[Key.projectsDesktop]: "桌面端",
+	[Key.projectsOther]: "其他",
 
 	// 密碼保護
 	[Key.passwordProtected]: "密碼保護",

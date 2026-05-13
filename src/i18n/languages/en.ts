@@ -14,6 +14,7 @@ export const en: Translation = {
 	[Key.searchViewMore]: "View more results ({count} more)",
 	[Key.other]: "Other",
 	[Key.all]: "All",
+	[Key.friendsFilterAll]: "All",
 
 	[Key.tags]: "Tags",
 	[Key.categories]: "Categories",
@@ -327,6 +328,18 @@ export const en: Translation = {
 	[Key.devices]: "Devices",
 	[Key.devicesSubtitle]: "My Devices Collection",
 	[Key.devicesViewDetails]: "View Details",
+
+	// Projects Page
+	[Key.projects]: "Projects",
+	[Key.projectsSubtitle]: "My Project Works",
+	[Key.projectsCompleted]: "Completed",
+	[Key.projectsInProgress]: "In Progress",
+	[Key.projectsPlanned]: "Planned",
+	[Key.projectsVisit]: "Visit",
+	[Key.projectsWeb]: "Web",
+	[Key.projectsMobile]: "Mobile",
+	[Key.projectsDesktop]: "Desktop",
+	[Key.projectsOther]: "Other",
 
 	// Password Protection
 	[Key.passwordProtected]: "Password Protected",

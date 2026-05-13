@@ -25,7 +25,7 @@ export const friendsConfig: FriendLink[] = [
 	{
 		title: "Hyde Blog",
 		imgurl:
-			"https://hyde.seasir.top/_astro/avatar.B2RZ_bo3_JV0dW.webp",
+			"/assets/avatar.avif",
 		desc: "人心中的成见是一座大山~",
 		siteurl: "https://teek.seasir.top/",
 		tags: ["Astro"],

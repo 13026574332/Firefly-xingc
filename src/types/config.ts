@@ -88,6 +88,7 @@ export type SiteConfig = {
 		gallery: boolean; // 相册页面开关
 		devices: boolean; // 设备页面开关
 		diary?: boolean; // 日记页面开关
+		projects?: boolean; // 项目页面开关
 	};
 	// 日记页面配置
 	diary?: {
@@ -187,6 +188,7 @@ export enum LinkPreset {
 	Gallery = 7,
 	Devices = 8,
 	Diary = 9,
+	Projects = 10,
 }
 
 export type NavBarLink = {

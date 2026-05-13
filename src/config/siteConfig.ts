@@ -142,6 +142,8 @@ export const siteConfig: SiteConfig = {
 		devices: true,
 		// 日记页面开关
 		diary: true,
+		// 项目页面开关
+		projects: true,
 	},
 	// 日记页面配置
 	diary: {

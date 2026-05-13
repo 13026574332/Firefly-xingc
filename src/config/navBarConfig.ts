@@ -33,6 +33,11 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		links.push(LinkPreset.Guestbook);
 	}
 
+	// 根据配置决定是否添加项目，在siteConfig关闭pages.projects时导航栏不显示项目
+	if (siteConfig.pages.projects) {
+		links.push(LinkPreset.Projects);
+	}
+
 	// 我的及其子菜单
 	// links.push({
 	// 	name: "我的",
