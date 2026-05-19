@@ -63,11 +63,6 @@ main:
           #   [ "$CNB_COMMIT_MESSAGE_TITLE" = "BUILD" ]
           script: |
             pnpm install
-        - name: 🔍 检查关键文件
-          script: |
-            echo "检查关键文件是否存在..."
-            ls -la docs/.vitepress/theme/components/CommonTools/icons/PackageBalanceIcon.vue || echo "File not found"
-            ls -la docs/.vitepress/theme/components/CommonTools/ || echo "Directory not found"
         - name: 📦️ 编译项目
           # if: |
           #   [ "$CNB_COMMIT_MESSAGE_TITLE" = "BUILD" ]
@@ -77,7 +72,7 @@ main:
           # if: |
           #   [ "$CNB_COMMIT_MESSAGE_TITLE" = "BUILD" ]
           image: node:22
-          script: npx edgeone pages deploy ./dist --name ssnav --token $EDGEONE_PAGES_API_TOKEN
+          script: npx edgeone pages deploy ./dist --name firefly-hyde --token $EDGEONE_PAGES_API_TOKEN
 
 
 
@@ -121,3 +116,105 @@ main:
               > **提交者:** $CNB_COMMITTER            
               > **仓库地址:** [$CNB_REPO_URL_HTTPS]($CNB_REPO_URL_HTTPS)            
               > **我的网站:** [seasir.top](https://seasir.top/)
+
+
+        - name: 📢 飞书发布通知
+          image: tencentcom/feishu-message
+
+          settings:
+            robot: $ROBOT
+            msg_type: interactive
+
+            card: |
+              {
+                "config": {
+                  "wide_screen_mode": true
+                },
+
+                "header": {
+                  "template": "green",
+                  "title": {
+                    "tag": "plain_text",
+                    "content": "🎉 Firefly-Hyde 发布成功"
+                  }
+                },
+
+                "elements": [
+                  {
+                    "tag": "div",
+                    "fields": [
+                      {
+                        "is_short": true,
+                        "text": {
+                          "tag": "lark_md",
+                          "content": "**构建时间**\n$CUSTOM_ENV_DATE_INFO"
+                        }
+                      },
+                      {
+                        "is_short": true,
+                        "text": {
+                          "tag": "lark_md",
+                          "content": "**构建 ID**\n$CNB_BUILD_ID"
+                        }
+                      },
+                      {
+                        "is_short": true,
+                        "text": {
+                          "tag": "lark_md",
+                          "content": "**提交 ID**\n$CNB_COMMIT_SHORT"
+                        }
+                      },
+                      {
+                        "is_short": true,
+                        "text": {
+                          "tag": "lark_md",
+                          "content": "**构建分支**\n$CNB_BRANCH"
+                        }
+                      },
+                      {
+                        "is_short": false,
+                        "text": {
+                          "tag": "lark_md",
+                          "content": "**提交信息**\n$CNB_COMMIT_MESSAGE_TITLE"
+                        }
+                      },
+                      {
+                        "is_short": true,
+                        "text": {
+                          "tag": "lark_md",
+                          "content": "**提交者**\n$CNB_COMMITTER"
+                        }
+                      }
+                    ]
+                  },
+
+                  {
+                    "tag": "hr"
+                  },
+
+                  {
+                    "tag": "action",
+                    "actions": [
+                      {
+                        "tag": "button",
+                        "text": {
+                          "tag": "plain_text",
+                          "content": "📦 查看仓库"
+                        },
+                        "type": "primary",
+                        "url": "$CNB_REPO_URL_HTTPS"
+                      },
+                      {
+                        "tag": "button",
+                        "text": {
+                          "tag": "plain_text",
+                          "content": "🌐 访问网站"
+                        },
+                        "type": "default",
+                        "url": "https://seasir.top/"
+                      }
+                    ]
+                  }
+                ]
+              }
+
