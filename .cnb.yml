@@ -124,34 +124,42 @@ main:
             msg_type: interactive
             card: |
               {
-                  "elements": [
-                      {
-                          "tag": "div",
-                          "text": {
-                              "content": "**西湖**，位于浙江省杭州市西湖区龙井路1号，杭州市区西部，景区总面积49平方千米，汇水面积为21.22平方千米，湖面面积为6.38平方千米。",
-                              "tag": "lark_md"
-                          }
-                      },
-                      {
-                          "actions": [
-                              {
-                                  "tag": "button",
-                                  "text": {
-                                      "content": "更多景点介绍 :玫瑰:",
-                                      "tag": "lark_md"
-                                  },
-                                  "url": "https://seasir.top/",
-                                  "type": "default",
-                                  "value": {}
-                              }
-                          ],
-                          "tag": "action"
-                      }
-                  ],
-                  "header": {
-                      "title": {
-                          "content": "今日旅游推荐",
-                          "tag": "plain_text"
-                      }
+                "header": {
+                  "title": {
+                    "content": "🚀 Firefly-Hyde 构建通知",
+                    "tag": "plain_text"
                   }
+                },
+                "elements": [
+                  {
+                    "tag": "div",
+                    "text": {
+                      "tag": "lark_md",
+                      "content": "> 
+                      **🎉 Firefly-Hyde 又一次发布成功啦！
+                      **\n> **构建时间:** $CUSTOM_ENV_DATE_INFO\n> 
+                      **构建ID:** $CNB_BUILD_ID\n> 
+                      **提交ID:** $CNB_COMMIT_SHORT\n> 
+                      **构建分支:** $CNB_BRANCH\n> 
+                      **提交信息:** $CNB_COMMIT_MESSAGE_TITLE\n> 
+                      **提交者:** $CNB_COMMITTER\n> 
+                      **仓库地址:** [$CNB_REPO_URL_HTTPS]($CNB_REPO_URL_HTTPS)\n> 
+                      **我的网站:** [seasir.top](https://seasir.top/)"
+                    }
+                  },
+                  {
+                    "tag": "action",
+                    "actions": [
+                      {
+                        "tag": "button",
+                        "text": {
+                          "tag": "plain_text",
+                          "content": "🌐 打开网站"
+                        },
+                        "url": "https://seasir.top/",
+                        "type": "primary"
+                      }
+                    ]
+                  }
+                ]
               }
