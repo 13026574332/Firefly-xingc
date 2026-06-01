@@ -121,12 +121,22 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 	// 右侧边栏组件配置列表
 	rightComponents: [
 		{
+			// 组件类型：恋爱计时小组件
+			type: "relationship",
+			// 是否启用该组件
+			enable: true,
+			// 组件位置
+			position: "top",
+			// 是否在文章详情页显示
+			showOnPostPage: true,
+		},
+		{
 			// 组件类型：今日一言
 			type: "quoteOfTheDay",
 			// 是否启用该组件
 			enable: true,
 			// 组件位置
-			position: "sticky",
+			position: "top",
 			// 是否在文章详情页显示
 			showOnPostPage: true,
 		},
@@ -183,16 +193,6 @@ export const sidebarLayoutConfig: SidebarLayoutConfig = {
 			showOnPostPage: true,
 			// 配置ID：使用第二个广告配置
 			configId: "ad2",
-		},
-		{
-			// 组件类型：恋爱计时小组件
-			type: "relationship",
-			// 是否启用该组件
-			enable: true,
-			// 组件位置
-			position: "sticky",
-			// 是否在文章详情页显示
-			showOnPostPage: true,
 		},
 	],
 
