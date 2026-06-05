@@ -10,6 +10,7 @@ import { i18n } from "@i18n/translation";
 import {
 	getDefaultBannerCarouselEnabled,
 	getDefaultBannerTitleEnabled,
+	getDefaultFullscreenCarouselEnabled,
 	getDefaultGradientEnabled,
 	getDefaultHue,
 	getDefaultOverlayBlur,
@@ -21,6 +22,7 @@ import {
 	getHue,
 	getStoredBannerCarouselEnabled,
 	getStoredBannerTitleEnabled,
+	getStoredFullscreenCarouselEnabled,
 	getStoredGradientEnabled,
 	getStoredOverlayBlur,
 	getStoredOverlayCardOpacity,
@@ -31,6 +33,7 @@ import {
 	getStoredWavesEnabled,
 	setBannerCarouselEnabled,
 	setBannerTitleEnabled,
+	setFullscreenCarouselEnabled,
 	setGradientEnabled,
 	setHue,
 	setOverlayBlur,
@@ -84,6 +87,8 @@ let bannerTitleEnabled = $state(true);
 const defaultBannerTitleEnabled = getDefaultBannerTitleEnabled();
 let bannerCarouselEnabled = $state(true);
 const defaultBannerCarouselEnabled = getDefaultBannerCarouselEnabled();
+let fullscreenCarouselEnabled = $state(true);
+const defaultFullscreenCarouselEnabled = getDefaultFullscreenCarouselEnabled();
 let sakuraEnabled = $state(true);
 const defaultSakuraEnabled = getDefaultSakuraEnabled();
 let overlayOpacity = $state(getDefaultOverlayOpacity());
@@ -117,6 +122,9 @@ const isBannerTitleSwitchable =
 // 是否允许用户切换横幅轮播
 const isBannerCarouselSwitchable =
 	backgroundWallpaper.banner?.carousel?.switchable ?? false;
+// 是否允许用户切换全屏轮播
+const isFullscreenCarouselSwitchable =
+	backgroundWallpaper.fullscreen?.carousel?.switchable ?? false;
 // 是否允许用户切换樱花特效
 const isSakuraSwitchable = sakuraConfig?.switchable ?? false;
 // 是否允许用户切换文章封面图
@@ -126,7 +134,8 @@ const hasBannerSettings =
 	isWavesSwitchable ||
 	isGradientSwitchable ||
 	isBannerTitleSwitchable ||
-	isBannerCarouselSwitchable;
+	isBannerCarouselSwitchable ||
+	isFullscreenCarouselSwitchable;
 const overlaySwitchableConfig =
 	backgroundWallpaper.overlay?.switchable ?? false;
 const isOverlaySettingsSwitchable =
@@ -161,7 +170,9 @@ let bannerSettingsIsDefault = $derived(
 		(!isWavesSwitchable || wavesEnabled === defaultWavesEnabled) &&
 		(!isGradientSwitchable || gradientEnabled === defaultGradientEnabled) &&
 		(!isBannerCarouselSwitchable ||
-			bannerCarouselEnabled === defaultBannerCarouselEnabled),
+			bannerCarouselEnabled === defaultBannerCarouselEnabled) &&
+		(!isFullscreenCarouselSwitchable ||
+			fullscreenCarouselEnabled === defaultFullscreenCarouselEnabled),
 );
 const hasAnyContent =
 	showThemeColor ||
@@ -271,6 +282,13 @@ function resetBannerSettings() {
 		bannerCarouselEnabled = defaultBannerCarouselEnabled;
 		setBannerCarouselEnabled(defaultBannerCarouselEnabled);
 	}
+	if (
+		isFullscreenCarouselSwitchable &&
+		fullscreenCarouselEnabled !== defaultFullscreenCarouselEnabled
+	) {
+		fullscreenCarouselEnabled = defaultFullscreenCarouselEnabled;
+		setFullscreenCarouselEnabled(defaultFullscreenCarouselEnabled);
+	}
 }
 
 function resetOverlaySettings() {
@@ -311,6 +329,11 @@ function toggleBannerTitleEnabled() {
 function toggleBannerCarouselEnabled() {
 	bannerCarouselEnabled = !bannerCarouselEnabled;
 	setBannerCarouselEnabled(bannerCarouselEnabled);
+}
+
+function toggleFullscreenCarouselEnabled() {
+	fullscreenCarouselEnabled = !fullscreenCarouselEnabled;
+	setFullscreenCarouselEnabled(fullscreenCarouselEnabled);
 }
 
 function toggleSakuraEnabled() {
@@ -406,9 +429,12 @@ onMount(() => {
 	bannerTitleEnabled = getStoredBannerTitleEnabled();
 
 	// 从localStorage读取横幅轮播状态
-	bannerCarouselEnabled = getStoredBannerCarouselEnabled();
+		bannerCarouselEnabled = getStoredBannerCarouselEnabled();
 
-	// 从localStorage读取樱花特效状态
+		// 从localStorage读取全屏轮播状态
+		fullscreenCarouselEnabled = getStoredFullscreenCarouselEnabled();
+
+		// 从localStorage读取樱花特效状态
 	sakuraEnabled = getStoredSakuraEnabled();
 
 	// 从localStorage读取文章封面图状态
@@ -673,7 +699,7 @@ $effect(() => {
                 </button>
                 {/if}
                 <!-- Banner Carousel Switch -->
-                {#if isBannerCarouselSwitchable}
+                {#if isBannerCarouselSwitchable && wallpaperMode === WALLPAPER_BANNER}
                 <button
                     class="w-full btn-regular rounded-md py-2 px-3 flex items-center gap-3 text-left active:scale-95 transition-all relative overflow-hidden"
                     class:bg-(--btn-regular-bg-hover)={bannerCarouselEnabled}
@@ -687,6 +713,24 @@ $effect(() => {
                         <div class="absolute top-0.5 w-4 h-4 bg-white rounded-full shadow transition-all duration-200"
                              class:left-0.5={!bannerCarouselEnabled}
                              class:left-5={bannerCarouselEnabled}></div>
+                    </div>
+                </button>
+                {/if}
+                <!-- Fullscreen Carousel Switch -->
+                {#if isFullscreenCarouselSwitchable && wallpaperMode === WALLPAPER_FULLSCREEN}
+                <button
+                    class="w-full btn-regular rounded-md py-2 px-3 flex items-center gap-3 text-left active:scale-95 transition-all relative overflow-hidden"
+                    class:bg-(--btn-regular-bg-hover)={fullscreenCarouselEnabled}
+                    onclick={toggleFullscreenCarouselEnabled}
+                >
+                    <Icon icon="material-symbols:view-carousel-outline" class="text-[1.25rem] shrink-0"></Icon>
+                    <span class="text-sm flex-1">{i18n(I18nKey.wallpaperCarousel)}</span>
+                    <div class="w-10 h-5 rounded-full transition-all duration-200 relative"
+                         class:bg-(--primary)={fullscreenCarouselEnabled}
+                         class:bg-(--btn-regular-bg-active)={!fullscreenCarouselEnabled}>
+                        <div class="absolute top-0.5 w-4 h-4 bg-white rounded-full shadow transition-all duration-200"
+                             class:left-0.5={!fullscreenCarouselEnabled}
+                             class:left-5={fullscreenCarouselEnabled}></div>
                     </div>
                 </button>
                 {/if}

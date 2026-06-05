@@ -168,6 +168,24 @@ export const friendsConfig: FriendLink[] = [
 		tags: ["Astro"],
 		weight: 0,
 		enabled: true
+	},
+	{
+		title: "番茄主理人",
+		imgurl: "https://q1.qlogo.cn/g?b=qq&nk=20447289&s=640",
+		desc: "坐而言不如起而行.",
+		siteurl: "https://fqzlr.com/",
+		tags: ["Astro"],
+		weight: 0,
+		enabled: true
+	},
+	{
+		title: "晓正杨博客",
+		imgurl: "https://images.sy.fj.kg/logo.96adlmmyni.webp",
+		desc: "让代码更有价值，让学生生活不再枯燥",
+		siteurl: "https://blog.7003410.xyz/",
+		tags: ["Astro"],
+		weight: 0,
+		enabled: true
 	}
 ];
 

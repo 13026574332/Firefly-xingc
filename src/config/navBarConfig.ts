@@ -129,8 +129,8 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 				icon: "fa7-brands:gitee",
 			},
 			{
-				name: "Cnb",
-				url: "https://cnb.cool/u/SeasirHyde",
+				name: "CNB",
+				url: "https://cnb.cool/W3C/Hyde/Firefly-hyde",
 				external: true,
 				icon: "tdesign:logo-cnb-filled",
 			},

@@ -266,6 +266,15 @@ const bannerCarouselInterval = Math.max(
 	backgroundWallpaper.banner?.carousel?.interval ?? 5000,
 	3000,
 );
+// 全屏壁纸轮播配置
+const fullscreenCarouselEnabledDefault =
+	backgroundWallpaper.fullscreen?.carousel?.enable ?? false;
+const fullscreenCarouselSwitchable =
+	backgroundWallpaper.fullscreen?.carousel?.switchable ?? false;
+const fullscreenCarouselInterval = Math.max(
+	backgroundWallpaper.fullscreen?.carousel?.interval ?? 5000,
+	3000,
+);
 ---
 
 <Layout title={title} banner={banner} description={description} lang={lang} setOGTypeArticle={setOGTypeArticle} postSlug={postSlug}>
@@ -320,9 +329,12 @@ const bannerCarouselInterval = Math.max(
     <div class="relative h-full w-full" id="banner-images-container"
          data-mobile-count={backgroundImages.mobile.length}
          data-desktop-count={backgroundImages.desktop.length}
-         data-carousel-enabled={bannerCarouselEnabledDefault}
-         data-carousel-switchable={bannerCarouselSwitchable}
-         data-carousel-interval={bannerCarouselInterval}>
+         data-banner-carousel-enabled={bannerCarouselEnabledDefault}
+         data-banner-carousel-switchable={bannerCarouselSwitchable}
+         data-banner-carousel-interval={bannerCarouselInterval}
+         data-fullscreen-carousel-enabled={fullscreenCarouselEnabledDefault}
+         data-fullscreen-carousel-switchable={fullscreenCarouselSwitchable}
+         data-fullscreen-carousel-interval={fullscreenCarouselInterval}>
         <!-- Mobile: 默认渲染第一张，其余放入 template 避免浏览器预加载 -->
         {backgroundImages.mobile.length > 0 && (
             <div class="banner-image-slot-mobile absolute inset-0 block lg:hidden">
@@ -458,25 +470,54 @@ const bannerCarouselInterval = Math.max(
             if (!container) return;
 
             var WALLPAPER_BANNER = 'banner';
+            var WALLPAPER_FULLSCREEN = 'fullscreen';
 
             var mobileCount = parseInt(container.dataset.mobileCount || '0', 10);
             var desktopCount = parseInt(container.dataset.desktopCount || '0', 10);
             if (mobileCount <= 1 && desktopCount <= 1) return;
 
-            var interval = parseInt(container.dataset.carouselInterval || '8000', 10);
-            var switchable = container.dataset.carouselSwitchable === 'true';
-            var defaultEnabled = container.dataset.carouselEnabled === 'true';
             var FADE_MS = 1500;
 
-            function isCarouselEnabled() {
-                if (!switchable) return defaultEnabled;
-                var stored = localStorage.getItem('bannerCarouselEnabled');
-                if (stored === null) return defaultEnabled;
+            function getCarouselConfig(mode) {
+                if (mode === WALLPAPER_FULLSCREEN) {
+                    return {
+                        interval: parseInt(container.dataset.fullscreenCarouselInterval || '8000', 10),
+                        switchable: container.dataset.fullscreenCarouselSwitchable === 'true',
+                        defaultEnabled: container.dataset.fullscreenCarouselEnabled === 'true',
+                        storageKey: 'fullscreenCarouselEnabled'
+                    };
+                } else {
+                    return {
+                        interval: parseInt(container.dataset.bannerCarouselInterval || '8000', 10),
+                        switchable: container.dataset.bannerCarouselSwitchable === 'true',
+                        defaultEnabled: container.dataset.bannerCarouselEnabled === 'true',
+                        storageKey: 'bannerCarouselEnabled'
+                    };
+                }
+            }
+
+            function isCarouselEnabled(mode) {
+                var config = getCarouselConfig(mode);
+                if (!config.switchable) return config.defaultEnabled;
+                var stored = localStorage.getItem(config.storageKey);
+                if (stored === null) return config.defaultEnabled;
                 return stored === 'true';
             }
 
             function isBannerWallpaperMode() {
                 return document.documentElement.getAttribute('data-wallpaper-mode') === WALLPAPER_BANNER;
+            }
+
+            function isFullscreenWallpaperMode() {
+                return document.documentElement.getAttribute('data-wallpaper-mode') === WALLPAPER_FULLSCREEN;
+            }
+
+            function isCarouselMode() {
+                return isBannerWallpaperMode() || isFullscreenWallpaperMode();
+            }
+
+            function getCurrentMode() {
+                return document.documentElement.getAttribute('data-wallpaper-mode');
             }
 
             // 收集所有帧内容
@@ -622,19 +663,23 @@ const bannerCarouselInterval = Math.max(
 
             function startCarousel() {
                 stopCarousel();
-                if (!isBannerWallpaperMode()) return;
-                if (!isCarouselEnabled()) return;
+                var currentMode = getCurrentMode();
+                if (!isCarouselMode()) return;
+                if (!isCarouselEnabled(currentMode)) return;
+
+                var config = getCarouselConfig(currentMode);
 
                 // 首张图立即启动 Ken Burns 缩放
                 applyInitialKB('banner-image-slot-mobile');
                 applyInitialKB('banner-image-slot-desktop');
 
                 timerId = setInterval(function() {
-                    if (!isBannerWallpaperMode()) { stopCarousel(); return; }
-                    if (!isCarouselEnabled()) { stopCarousel(); return; }
+                    var mode = getCurrentMode();
+                    if (!isCarouselMode()) { stopCarousel(); return; }
+                    if (!isCarouselEnabled(mode)) { stopCarousel(); return; }
                     crossfade('banner-image-slot-mobile', mobileCount, 'mobile');
                     crossfade('banner-image-slot-desktop', desktopCount, 'desktop');
-                }, interval);
+                }, config.interval);
             }
 
             function stopCarousel() {
@@ -642,12 +687,21 @@ const bannerCarouselInterval = Math.max(
             }
 
             window.addEventListener('bannerCarouselChange', function(e) {
-                e.detail && e.detail.enabled ? startCarousel() : stopCarousel();
+                if (isBannerWallpaperMode()) {
+                    e.detail && e.detail.enabled ? startCarousel() : stopCarousel();
+                }
+            });
+
+            window.addEventListener('fullscreenCarouselChange', function(e) {
+                if (isFullscreenWallpaperMode()) {
+                    e.detail && e.detail.enabled ? startCarousel() : stopCarousel();
+                }
             });
 
             window.addEventListener('wallpaperModeChange', function(e) {
-                if (e.detail && e.detail.mode === 'banner') {
-                    if (isCarouselEnabled()) startCarousel();
+                var mode = e.detail && e.detail.mode;
+                if (isCarouselMode()) {
+                    if (isCarouselEnabled(mode)) startCarousel();
                 } else {
                     stopCarousel();
                 }

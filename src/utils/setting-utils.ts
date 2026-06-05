@@ -1285,6 +1285,61 @@ export function applyBannerCarouselEnabledToDocument(enabled: boolean): void {
 	);
 }
 
+// Fullscreen carousel functions
+export function getDefaultFullscreenCarouselEnabled(): boolean {
+	return backgroundWallpaper.fullscreen?.carousel?.enable ?? false;
+}
+
+export function getStoredFullscreenCarouselEnabled(): boolean {
+	const isSwitchable =
+		backgroundWallpaper.fullscreen?.carousel?.switchable ?? false;
+	if (!isSwitchable) {
+		return getDefaultFullscreenCarouselEnabled();
+	}
+	if (
+		typeof localStorage === "undefined" ||
+		typeof localStorage.getItem !== "function"
+	) {
+		return getDefaultFullscreenCarouselEnabled();
+	}
+	const stored = localStorage.getItem("fullscreenCarouselEnabled");
+	if (stored === null) {
+		return getDefaultFullscreenCarouselEnabled();
+	}
+	return stored === "true";
+}
+
+export function setFullscreenCarouselEnabled(enabled: boolean): void {
+	const safeEnabled = !!enabled;
+	const isSwitchable =
+		backgroundWallpaper.fullscreen?.carousel?.switchable ?? false;
+	if (
+		isSwitchable &&
+		typeof localStorage !== "undefined" &&
+		typeof localStorage.setItem === "function"
+	) {
+		localStorage.setItem("fullscreenCarouselEnabled", String(safeEnabled));
+	}
+	applyFullscreenCarouselEnabledToDocument(safeEnabled);
+	if (typeof window !== "undefined") {
+		window.dispatchEvent(
+			new CustomEvent("fullscreenCarouselChange", {
+				detail: { enabled: safeEnabled },
+			}),
+		);
+	}
+}
+
+export function applyFullscreenCarouselEnabledToDocument(enabled: boolean): void {
+	if (typeof document === "undefined") {
+		return;
+	}
+	document.documentElement.setAttribute(
+		"data-fullscreen-carousel-enabled",
+		String(enabled),
+	);
+}
+
 // Post cover image functions
 export function getDefaultPostCoverImageEnabled(): boolean {
 	return siteConfig.postListLayout.showCover ?? true;
