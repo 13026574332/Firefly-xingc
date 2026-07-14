@@ -32,7 +32,7 @@ export type SiteConfig = {
 	description?: string; // 网站描述，用于生成 <meta name="description">
 	keywords?: string[]; // 站点关键词，用于生成 <meta name="keywords">
 
-	lang: "en" | "zh_CN" | "zh_TW" | "ja" | "ru";
+	lang: "en" | "zh_CN" | "zh_TW" | "ja" | "ru" | "ko";
 
 	themeColor: {
 		hue: number;
@@ -79,16 +79,17 @@ export type SiteConfig = {
 
 	// 页面开关配置
 	pages: {
-		friends: boolean; // 友链页面开关
-		sponsor: boolean; // 打赏页面开关
-		guestbook: boolean; // 留言板页面开关
-		bangumi: boolean; // Bangumi页面开关
-		gallery: boolean; // 相册页面开关
-		devices: boolean; // 设备页面开关
-		diary: boolean; // 日记页面开关
-		projects: boolean; // 项目页面开关
-		timeline: boolean; // 时间线页面开关
-		skills: boolean; // 技能页面开关	
+		friends: boolean;
+		sponsor: boolean;
+		guestbook: boolean;
+		bangumi: boolean;
+		gallery: boolean;
+		devices: boolean;
+		diary: boolean;
+		projects: boolean;
+		timeline: boolean;
+		skills: boolean;
+		anime: boolean;
 	};
 
 	// 日记页面配置
@@ -113,11 +114,28 @@ export type SiteConfig = {
 	postListLayout: {
 		defaultMode: "list" | "grid"; // 默认布局模式：list=列表模式，grid=网格模式
 		mobileDefaultMode?: "list" | "grid"; // 移动端默认布局模式（视口宽度<780px时使用），不设置则跟随 defaultMode
-		showTags: boolean; // 是否在文章列表中显示标签
-		descriptionLines?: number; // 文章简介显示行数，设为 0 则不截断，默认 2
 		allowSwitch: boolean; // 是否允许用户切换布局
 		allowCoverSwitch: boolean; // 是否允许用户切换文章封面图显示
 		showCover: boolean; // 是否在文章列表中显示封面图
+		descriptionLines?: number; // 文章简介显示行数，设为 0 则不截断，默认 2
+		showStatsIcons?: boolean; // 文章卡片底部统计是否显示图标
+		// 标签显示位置："meta"=跟随元数据行（默认），"bottom"=卡片底部独立一行（将替换stats显示，二者只能选其一）
+		tagsPosition?: "meta" | "bottom";
+		// PostMeta 元数据显示控制
+		meta?: {
+			showPublished?: boolean; // 是否显示发布日期
+			showCategory?: boolean; // 是否显示分类
+			showTags?: boolean; // 是否显示标签
+			tagCount?: number; // 标签数量
+			showWords?: boolean; // 是否显示字数
+			showReadingTime?: boolean; // 是否显示阅读时间
+		};
+		// PostStats 统计信息显示控制
+		stats?: {
+			showPublished?: boolean; // 是否显示发布日期
+			showWords?: boolean; // 是否显示字数
+			showReadingTime?: boolean; // 是否显示阅读时间
+		};
 		grid: {
 			// 网格布局配置，仅在 defaultMode 为 "grid" 或允许切换布局时生效
 			// 是否开启瀑布流布局

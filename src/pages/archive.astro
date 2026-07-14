@@ -1,5 +1,5 @@
 ---
-import ArchivePanel from "@components/controls/ArchivePanel.svelte";
+import ArchivePanel from "@/components/controls/ArchivePanel.astro";
 import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import MainGridLayout from "@layouts/MainGridLayout.astro";
@@ -50,7 +50,7 @@ const totalCount = postsCount + momentsCount + bangumiCount + lifeCount;
             </div>
         </div>
     </div>
-  <ArchivePanel sortedPosts={archiveList} client:only="svelte" />
+  <ArchivePanel />
   <script is:inline>
     (function() {
       var p = new URLSearchParams(location.search);
