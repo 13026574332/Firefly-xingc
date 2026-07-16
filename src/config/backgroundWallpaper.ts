@@ -43,13 +43,17 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 		// 桌面背景图片（支持单张或多张随机）
 		// desktop: "assets/images/DesktopWallpaper/d1.avif",
 		desktop: [
-			"https://t.alcy.cc/pc",
-			// "assets/images/DesktopWallpaper/d1.avif",
-			// "assets/images/DesktopWallpaper/d2.avif",
-			// "assets/images/DesktopWallpaper/d3.avif",
-			// "assets/images/DesktopWallpaper/d4.avif",
+			// "https://t.alcy.cc/pc",
+			"assets/images/DesktopWallpaper/d1.avif",
+			"assets/images/DesktopWallpaper/d2.avif",
+			"assets/images/DesktopWallpaper/d3.avif",
+			"assets/images/DesktopWallpaper/d4.avif",
+			"https://free.picui.cn/free/2026/07/16/6a5863951eb4f.jpg",
+			"https://github.com/13026574332/picx-images-hosting/raw/master/【哲风壁纸】二次元-初音未来.8l0s4f8w45.webp",
 			// "assets/images/DesktopWallpaper/d5.avif",
 			// "assets/images/DesktopWallpaper/d6.avif",
+			"https://github.com/13026574332/picx-images-hosting/raw/master/【哲风壁纸】二次元-动漫.54ygcc0mqm.webp",
+			"https://github.com/13026574332/picx-images-hosting/raw/master/雨夜.et7dxabny.webp",
 		],
 		// 移动背景图片（支持单张或多张随机）
 		// mobile: "assets/images/MobileWallpaper/m1.avif",
@@ -66,7 +70,8 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 		// 支持远程视频URL，本地视频请放在 public/assets/videos/ 目录下
 		// playerUrl: "/assets/videos/firefly.mp4",
 		playerUrl: [
-			"https://resource-ai.helplook.net/docker_production/4lkf7aju/faq/files/6a36dfc116662.mp4",
+			// "https://resource-ai.helplook.net/docker_production/4lkf7aju/faq/files/6a36dfc116662.mp4",
+			"../public/assets/videos/原神.mp4",
 		],
 	},
 	// 横幅壁纸和全屏壁纸共享配置
@@ -82,11 +87,11 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 			// 是否允许用户通过控制面板切换横幅标题显示
 			switchable: true,
 			// 主页横幅主标题
-			title: "Hyde Blog 🎉",
+			title: "Xingc Blog 🎉",
 			// 主页横幅主标题字体大小
 			titleSize: "3.8rem",
 			// 主页横幅副标题
-			subtitle: ["欲买桂花同载酒，终不似，少年游！", "花有重开日，人无再少年"],
+			subtitle: ["悟已往之不谏 知来者之可追", "花有重开日，人无再少年","他们以为击败我就是终结,而我必归来将之改写！","欢迎驻足，与我交换一段温柔、一份热爱。","纵前路有阻碍，亦会折返，重写属于自己的篇章。"],
 			// 主页横幅副标题字体大小
 			subtitleSize: "1.5rem",
 			typewriter: {
@@ -105,7 +110,7 @@ export const backgroundWallpaper: BackgroundWallpaperConfig = {
 		// 导航栏配置
 		navbar: {
 			// 横幅导航栏透明模式："semi" 半透明，"full" 完全透明，"semifull" 动态透明
-			transparentMode: "semi",
+			transparentMode: "semifull",
 			// 是否开启毛玻璃模糊效果，开启可能会影响页面性能，如果不开启则是半透明，请根据自己的喜好开启
 			enableBlur: true,
 			// 毛玻璃模糊度

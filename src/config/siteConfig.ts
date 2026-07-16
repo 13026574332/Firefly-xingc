@@ -6,7 +6,7 @@ const SITE_LANG = "zh_CN";
 
 export const siteConfig: SiteConfig = {
 	// 站点标题
-	title: "Hyde Blog",
+	title: "Xingc Blog",
 
 	// 站点副标题
 	subtitle: "人心中的成见是一座大山",
@@ -16,11 +16,11 @@ export const siteConfig: SiteConfig = {
 
 	// 站点描述
 	description:
-		"Hyde 是一个记录折腾博客搭建教程、分享教程、随笔感悟，技术探索与生活记录，都在这里。",
+		"Xingc 是一个记录折腾博客搭建教程、分享教程、随笔感悟，技术探索与生活记录，都在这里。",
 
 	// 站点关键词
 	keywords: [
-		"Hyde",
+		"Xingc",
 		"个人博客主题",
 		"Astro",
 		"ACGN",

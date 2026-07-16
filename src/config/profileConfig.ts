@@ -6,13 +6,13 @@ export const profileConfig: ProfileConfig = {
 	// 1. public 目录（以 "/" 开头，不优化）："/assets/images/avatar.webp"
 	// 2. src 目录（不以 "/" 开头，自动优化但会增加构建时间，推荐）："assets/images/avatar.webp"
 	// 3. 远程 URL："https://example.com/avatar.jpg"
-	avatar: "assets/images/avatar.avif",
+	avatar: "https://i.postimg.cc/Fz1bpQ0f/wei-xin-tu-pian-20250613142553.jpg",
 
 	// 名字
-	name: "Hyde",
+	name: "Xingc",
 
 	// 个人签名
-	bio: "Hello, I'm Hyde.",
+	bio: "Hello, I'm Xingc.",
 
 	// 链接配置
 	// 已经预装的图标集：fa7-brands，fa7-regular，fa7-solid，material-symbols，simple-icons
@@ -24,32 +24,14 @@ export const profileConfig: ProfileConfig = {
 		{
 			name: "GitHub",
 			icon: "fa7-brands:github",
-			url: "https://github.com/Seasir-Hyde/Firefly-hyde",
-			showName: false,
+			url: "https://github.com/13026574332/Firefly-xingc",
+			showName: true,
 		},
 		{
 			name: "Email",
 			icon: "fa7-solid:envelope",
-			url: "mailto:seasir666@gmail.com",
-			showName: false,
-		},
-		{
-			name: "RSS",
-			icon: "fa7-solid:rss",
-			url: "/rss/",
-			showName: false,
-		},
-		{
-			name: "cnb",
-			icon: "tdesign:logo-cnb-filled",
-			url: "https://cnb.cool/W3C/Hyde/Firefly-hyde",
-			showName: false,
-		},
-		{
-			name: "Telegram",
-			icon: "fa7-brands:telegram",
-			url: "https://t.me/seasir_Bot",
-			showName: false,
+			url: "yinjunhao123456@qq.com",
+			showName: true,
 		},
 	],
 };

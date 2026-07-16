@@ -129,15 +129,15 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 			},
 			{
 				name: "Gitee",
-				url: "https://gitee.com/SeasirHyde",
+				url: "https://gitee.com/on-the-day-we-met/Firefly-xingc",
 				external: true,
 				icon: "fa7-brands:gitee",
 			},
 			{
-				name: "CNB",
-				url: "https://cnb.cool/W3C/Hyde/Firefly-hyde",
+				name:"bilibili",
+				url:"https://space.bilibili.com/352742027?spm_id_from=333.1007.0.0",
 				external: true,
-				icon: "tdesign:logo-cnb-filled",
+				icon: "fa7-brands:bilibili",
 			},
 			{
 				name: "个人主页",
@@ -145,12 +145,6 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 				external: true,
 				icon: "material-symbols:page-footer-outline",
 			},
-			// {
-			// 	name: "QQ交流群",
-			// 	url: "https://qq.com",
-			// 	external: true,
-			// 	icon: "fa7-brands:qq",
-			// },
 		],
 	});
 
