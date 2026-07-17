@@ -14,7 +14,7 @@ export const externalNotebooksConfig = {
 		日记本: "04da78da60cd6363041605ee65f56bdb",
 		日常随笔: "a3707e728f5797612a0b8a9560035686",
 		喜马拉雅: "f189e7928f9d5e98700eb17c0b5853fa",
-		我和宝宝的日常: "5cabb89043f03efa0099f828505fd9ea",
+		// 我和宝宝的日常: "5cabb89043f03efa0099f828505fd9ea",
 		记录100件事: "05da9de9c20e47f14849a4937b715d65",
 	} as Record<string, string>,
 

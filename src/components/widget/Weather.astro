@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import WidgetLayout from "@/components/common/WidgetLayout.astro";
+import { weatherConfig } from "@/config/weatherConfig";
 
 interface Props {
 	class?: string;
@@ -11,6 +12,10 @@ interface Props {
 }
 
 const { class: className, style, city, adcode, extended = true } = Astro.props;
+
+// 优先使用传入的 props，否则使用 weatherConfig 中的配置
+const effectiveCity = city || weatherConfig.city || undefined;
+const effectiveAdcode = adcode || weatherConfig.adcode || undefined;
 
 // 缓存键名
 const CACHE_KEY = "weather_data_cache";
@@ -577,7 +582,7 @@ const COLLAPSED_HEIGHT = "9rem";
 	}
 </style>
 
-<script is:inline define:vars={{ city, adcode, CACHE_KEY, CACHE_DURATION, extended }}>
+<script is:inline define:vars={{ city: effectiveCity, adcode: effectiveAdcode, CACHE_KEY, CACHE_DURATION, extended }}>
 	(function () {
 		const API_URL = "https://uapis.cn/api/v1/misc/weather?";
 

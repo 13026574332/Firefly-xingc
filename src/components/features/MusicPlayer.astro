@@ -640,7 +640,7 @@ const widgetId =
         var d = e.detail;
         setLoading(false);
         if (d.playlist.length > 0) {
-            renderPlaylist(d.playlist, 0);
+            renderPlaylist(d.playlist, typeof d.currentIndex === 'number' ? d.currentIndex : 0);
             updateModeUI(d.playMode);
             updateVolumeUI(d.volume, d.isMuted);
         } else {

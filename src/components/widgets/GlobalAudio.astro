@@ -2,9 +2,13 @@
 import { musicPlayerConfig } from "@/config/musicConfig";
 import { musicList } from "@/data/music";
 
-// 默认播放第一首
-const initialPlaylist = JSON.stringify(musicList);
-const initialSong = musicList[0] || {};
+// 根据播放模式选择初始歌曲
+const playlistArr = musicList;
+const playModeStr = musicPlayerConfig.playMode ?? "list";
+const startIdx = playModeStr === "random" ? Math.floor(Math.random() * playlistArr.length) : 0;
+const initialPlaylist = JSON.stringify(playlistArr);
+const initialSong = playlistArr[startIdx] || {};
+const initialIndex = startIdx;
 const showMini = musicPlayerConfig.showMiniPlayer ?? false;
 ---
 <div transition:persist="firefly-global-audio-wrapper">
@@ -62,12 +66,12 @@ const showMini = musicPlayerConfig.showMiniPlayer ?? false;
     )}
 </div>
 
-<script define:vars={{ initialPlaylist }} is:inline>
+<script define:vars={{ initialPlaylist, initialIndex }} is:inline>
     class GlobalMusicPlayer {
         constructor() {
             // First time init: assume elements are present
             this.playlist = JSON.parse(initialPlaylist);
-            this.currentIndex = 0;
+            this.currentIndex = initialIndex;
             this.isPlaying = false;
             this.isShuffle = false;
             // 'all' = Loop All (Sequential), 'one' = Loop One, 'off' = No Loop (Stop at end)
@@ -93,7 +97,7 @@ const showMini = musicPlayerConfig.showMiniPlayer ?? false;
 
             // Load initial song if needed
             if (this.playlist.length > 0 && this.audio && !this.audio.src) {
-               this.loadSong(0, false);
+               this.loadSong(this.currentIndex, false);
             }
 
             // Delegated click listeners for main player — work even if DOM binding hasn't happened yet

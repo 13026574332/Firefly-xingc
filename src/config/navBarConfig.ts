@@ -83,7 +83,7 @@ const getDynamicNavBarConfig = (): NavBarConfig => {
 		icon: "material-symbols:info",
 		children: [
 			// 打赏
-			LinkPresets.Sponsor,
+			// LinkPresets.Sponsor,
 
 			// 关于页面
 			LinkPresets.About,

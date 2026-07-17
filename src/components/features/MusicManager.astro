@@ -398,7 +398,8 @@ const managerConfigStr = JSON.stringify({
                 
                 const globalPlayer = window.globalMusicPlayer;
                 if (globalPlayer && globalPlayer.playlist && globalPlayer.playlist.length > 0) {
-                    // Sync with GlobalAudio's playlist
+                    // Sync with GlobalAudio's playlist and current track index
+                    state.currentIndex = typeof globalPlayer.currentIndex === 'number' ? globalPlayer.currentIndex : 0;
                     state.playlist = globalPlayer.playlist.map(function (song) {
                         return {
                             name: song.title || song.name || 'Unknown',
@@ -436,12 +437,18 @@ const managerConfigStr = JSON.stringify({
 
                 emit('fm:init', {
                     playlist: state.playlist,
+                    currentIndex: state.currentIndex,
                     playMode: state.playMode,
                     volume: state.volume,
                     isMuted: state.isMuted
                 });
 
-                loadTrack(startIndex, false);
+                // When syncing with GlobalAudio, don't load a track
+                // — GlobalAudio already controls playback.
+                // The sidebar UI will sync via fm:track events from GlobalAudio.
+                if (!shouldSyncWithGlobal) {
+                    loadTrack(startIndex, false);
+                }
             } else {
                 state.initialized = true;
                 emit('fm:init', {
