@@ -1,0 +1,38 @@
+backend:
+  name: github
+  repo: 13026574332/Firefly-xingc
+  branch: main
+  client_id: Ov23liPh4jGcZdeD59g2
+
+media_folder: public/images
+public_folder: /images
+
+collections:
+  - name: posts
+    label: 博客文章
+    folder: src/content/posts
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: 标题, name: title, widget: string }
+      - { label: 发布日期, name: published, widget: datetime, format: "YYYY-MM-DDTHH:mm:ss" }
+      - { label: 更新日期, name: updated, widget: datetime, format: "YYYY-MM-DDTHH:mm:ss", required: false }
+      - { label: 草稿, name: draft, widget: boolean, default: false }
+      - { label: 描述, name: description, widget: text, required: false }
+      - { label: 封面图, name: image, widget: image, required: false }
+      - { label: 标签, name: tags, widget: list, default: [], required: false }
+      - { label: 分类, name: category, widget: string, required: false }
+      - { label: 置顶, name: pinned, widget: boolean, default: false }
+      - { label: 启用评论, name: comment, widget: boolean, default: true }
+      - { label: 密码保护, name: password, widget: string, required: false }
+      - { label: 密码提示, name: passwordHint, widget: string, required: false }
+      - { label: 正文, name: body, widget: markdown }
+
+  - name: spec
+    label: 独立页面
+    folder: src/content/spec
+    create: true
+    slug: "{{slug}}"
+    fields:
+      - { label: 标题, name: title, widget: string }
+      - { label: 正文, name: body, widget: markdown }
