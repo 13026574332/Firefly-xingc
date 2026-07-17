@@ -294,7 +294,7 @@ export default defineConfig({
 		plugins: [tailwindcss()],
 		server: {
 			watch: {
-				ignored: ["**/package/**", "**/Firefly-docs/**"],
+				ignored: ["**/package/**", "**/Firefly-docs/**", "**/public/assets/music/**"],
 			},
 		},
 		resolve: {

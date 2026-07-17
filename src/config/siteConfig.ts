@@ -6,13 +6,13 @@ const SITE_LANG = "zh_CN";
 
 export const siteConfig: SiteConfig = {
 	// 站点标题
-	title: "Xing Blog",
+	title: "Xingc Blog",
 
 	// 站点副标题
 	subtitle: "",
 
 	// 站点 URL
-	site_url: "https://seasir.top",
+	site_url: "http://xingc.dpdns.org/",
 
 	// 站点描述
 	description:
@@ -59,7 +59,7 @@ export const siteConfig: SiteConfig = {
 	// 网站Card样式配置
 	card: {
 		// 是否开启卡片边框和阴影，开启后让网站更有立体感
-		border: false,
+		border: true,
 		// 是否让卡片风格跟随主题色相
 		followTheme: true,
 	},
@@ -96,7 +96,7 @@ export const siteConfig: SiteConfig = {
 		// 导航菜单对齐方式，left：左对齐，center：居中
 		menuAlign: "center",
 		// 导航栏图标和标题是否跟随主题色
-		followTheme: false,
+		followTheme: true,
 		// 导航栏是否固定在顶部并始终可见
 		stickyNavbar: true,
 	},
@@ -113,7 +113,7 @@ export const siteConfig: SiteConfig = {
 		// 友链页面开关
 		friends: true,
 		// 打赏页面开关
-		sponsor: true,
+		sponsor: false,
 		// 留言板页面开关，需要配置评论系统
 		guestbook: true,
 		// 番组计划页面开关，含追番、游戏、书籍和音乐
@@ -178,9 +178,9 @@ export const siteConfig: SiteConfig = {
 			// 标签数量，设为 0 则不限制
 			tagCount: 5,
 			// 是否显示字数
-			showWords: false,
+			showWords: true,
 			// 是否显示阅读时间
-			showReadingTime: false,
+			showReadingTime: true,
 		},
 		// 底部 PostStats 统计信息显示控制
 		// 如果tagsPosition设置为"bottom"，则stats将不显示
@@ -224,7 +224,7 @@ export const siteConfig: SiteConfig = {
 	// bangumi配置
 	bangumi: {
 		// Bangumi用户ID
-		userId: "1143164",
+		userId: "1066609",
 		// 数据模式：static=构建时获取，dynamic=客户端实时获取
 		// static 模式在构建时获取数据并静态渲染，部署后数据不更新
 		// dynamic 模式在浏览器中实时请求 API，始终显示最新数据
@@ -244,7 +244,7 @@ export const siteConfig: SiteConfig = {
 		// Bilibili 配置
 		bilibili: {
 			// 你的 Bilibili 用户 UID
-			uid: "38932988",
+			uid: "352742027",
 		},
 		// TMDB 配置（可选，需要翻墙）
 		// tmdb: {

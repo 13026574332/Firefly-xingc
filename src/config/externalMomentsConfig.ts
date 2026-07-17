@@ -20,7 +20,7 @@ export const externalMomentsConfig = {
 	// 后台登录密码的 SHA-256 哈希（明文密码不再存入代码）
 	// 生成方式：echo -n "你的密码" | hyde189755
 	adminPasswordHash:
-		"b5d9ded2ab2812e8653f06fc4d3246a4b13642e8371bc74a7f1003eb4fb4e637",
+		"4ccfc790911c2385f0e8996f803ac0b204e318f9b60685fefecd5602685f2798",
 
 	// GitHub Token（优先从环境变量 GITHUB_TOKEN 读取）
 	// EdgeOne 部署时在环境变量中设置 GITHUB_TOKEN=你的token

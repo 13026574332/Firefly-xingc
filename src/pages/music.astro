@@ -2,14 +2,18 @@
 import I18nKey from "@i18n/i18nKey";
 import { i18n } from "@i18n/translation";
 import MusicPlayer from "@/components/widgets/MusicPlayer.astro";
-import { siteConfig } from "@/config";
+import { musicPlayerConfig } from "@/config";
 import { musicList, playlistCounts, playlistSongs } from "@/data/music";
 import MainGridLayout from "@/layouts/MainGridLayout.astro";
 
-const basePlaylists = siteConfig.music?.playlists || [];
+const isLocal = musicPlayerConfig.mode === "local";
+
+// 本地模式：使用音乐文件中的分类
+// Meting 模式：使用 siteConfig.music.playlists
+const categoryIds = Object.keys(playlistCounts).filter((id) => id !== "all");
 const playlists = [
 	{ id: "all", name: "全部音乐" },
-	...basePlaylists.map((pl) => ({ id: pl.id, name: pl.name })),
+	...categoryIds.map((id) => ({ id, name: id })),
 ];
 
 const counts = { ...playlistCounts, all: musicList.length };

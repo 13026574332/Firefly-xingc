@@ -1,19 +1,52 @@
-# 关于我 / About Me
+# 👋 你好，我是 Xingc
 
-## 🛠️ 关于本站
+## 👤 关于我
 
-这个网站使用 **Astro** 框架构建，采用了 [Firefly](https://github.com/CuteLeaf/Firefly) 模板，Firefly 是基于 [Fuwari](https://github.com/saicaca/fuwari) 的二次开发。
+一个热爱技术、喜欢折腾的开发者。喜欢记录学习和生活中的点滴，这里是我的个人博客。
 
-**Firefly** 是一款基于 Astro 框架和 Fuwari 模板开发的清新美观且现代化个人博客主题模板，专为技术爱好者和内容创作者设计。该主题融合了现代 Web 技术栈，提供了丰富的功能模块和高度可定制的界面，让您能够轻松打造出专业且美观的个人博客网站。
-
-**📝Firefly使用文档： [https://docs-firefly.cuteleaf.cn](https://docs-firefly.cuteleaf.cn/)**
-
-**⭐Firefly开源地址：[https://github.com/CuteLeaf/Firefly](https://github.com/CuteLeaf/Firefly)** 
-
-**⭐Fuwari开源地址：[https://github.com/saicaca/fuwari](https://github.com/saicaca/fuwari)**
-
-::cnb{repo="W3C/w3c"}
+> "此情可待成追忆，只是当时已惘然。"
 
 ---
 
-*感谢你的来访！希望在这里能找到对你有用的内容！*
+## 💻 技术栈
+
+| 类别 | 工具/技术 |
+|---|---|
+| **前端** | Vue、Astro、Svelte、TailwindCSS |
+| **后端** | Node.js |
+| **工具** | VS Code、Git、pnpm |
+| **部署** | Cloudflare / Vercel |
+
+---
+
+## 📖 兴趣爱好
+
+- 🎮 玩游戏
+- 🎵 听音乐（日语/流行/古风）
+- 📺 追番看剧
+- 🔧 捣鼓各种数码设备
+
+---
+
+## 🛠️ 关于本站
+
+本站基于 **Astro** 构建，使用 [Firefly](https://github.com/CuteLeaf/Firefly) 主题，最初基于 [Fuwari](https://github.com/saicaca/fuwari) 二次开发。
+
+---
+
+## 🎯 建站初衷
+
+搭建这个博客，是想记录自己在技术探索中的成长、生活中的随笔感悟，以及那些折腾博客本身的过程。
+
+希望这里能成为一片属于自己的小天地 🌱
+
+---
+
+## 📬 联系我
+
+- **GitHub**: [13026574332](https://github.com/13026574332)
+- **Email**: yinjunhao123456@qq.com
+
+---
+
+*感谢你的来访！*

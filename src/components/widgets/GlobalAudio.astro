@@ -101,9 +101,11 @@ const showMini = musicPlayerConfig.showMiniPlayer ?? false;
             }
 
             // Delegated click listeners for main player — work even if DOM binding hasn't happened yet
+            // Skip buttons that already have direct (data-bound) handlers to avoid double-triggering
             document.addEventListener('click', (e) => {
                 const btn = e.target.closest('#play-btn, #prev-btn, #next-btn, #shuffle-btn, #repeat-btn');
                 if (!btn) return;
+                if (btn.dataset.bound === "true") return;
                 if (btn.id === 'play-btn') this.togglePlay();
                 else if (btn.id === 'prev-btn') this.prevSong();
                 else if (btn.id === 'next-btn') this.nextSong(false);
