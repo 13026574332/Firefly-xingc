@@ -123,7 +123,7 @@ export const siteConfig: SiteConfig = {
 		// 设备页面开关
 		devices: true,
 		// 日记页面开关
-		diary: true,
+		diary: false,
 		// 项目页面开关
 		projects: true,
 		// 时间线页面开关
